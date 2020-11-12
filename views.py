@@ -17,24 +17,27 @@ def home(request):
 		all_items = List.objects.all
 		return render(request, 'home.html', {'all_items': all_items})
 # Create your views here.
+# delete function deltes the to do list items
 def delete(request, list_id):
 	item = List.objects.get(pk=list_id)
 	item.delete()
 	messages.success(request, ('Item Has Been Deleted'))
 	return redirect('home')
 
+# Cross off function sets items.completed to True
 def cross_off(request, list_id):
 	item = List.objects.get(pk=list_id)
 	item.completed = True
 	item.save()
 	return redirect('home')
-
+# Uncross function sets items.completed to False
 def uncross(request, list_id):
 	item = List.objects.get(pk=list_id)
 	item.completed = False
 	item.save()
 	return redirect('home')
 
+# edit function allows the user to edit the items in the todo list
 def edit(request, list_id):
 	if request.method == 'POST':
 		item = List.objects.get(pk=list_id)
