@@ -1,7 +1,9 @@
+#imports os and sys
 import os
 import sys
 
-
+# main class executes sys.argv if Django was imported correctly
+# if it isn't it raises an error 
 def main():
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'todolist.settings')
     try:
