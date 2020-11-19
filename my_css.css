@@ -1,3 +1,4 @@
+/* Places a line through an item when an action is done to the striker class*/
 .striker {
 	text-decoration: line-through;
 }
